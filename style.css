@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: radial-gradient(circle, #1b1b1b, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.calculator {
+  background: #222;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+  padding: 1.5em;
+  width: 340px;
+  max-width: 95vw;
+  transform: scale(1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand {
+  font-family: Arial, sans-serif;
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0.4em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.display {
+  background: #3b3d2f;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  color: #9efc8e;
+  font-family: monospace;
+  box-shadow: inset 0 0 10px #000;
+  margin-bottom: 1em;
+}
+
+.top-display {
+  font-size: 0.9em;
+  color: #a4d6a2;
+  text-align: right;
+  min-height: 1.2em;
+}
+
+.bottom-display {
+  font-size: 1.6em;
+  text-align: right;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5em;
+  width: 100%;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 15px 0;
+  font-size: 1.1em;
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn.num {
+  background: #444;
+  color: #fff;
+}
+
+.btn.op {
+  background: #005f87;
+  color: #fff;
+}
+
+.btn.fn {
+  background: #666;
+  color: #ffeb3b;
+}
+
+.btn.eq {
+  background: #00796b;
+  color: #fff;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  background: #888;
+}
+
+@media (max-width: 500px) {
+  .calculator {
+    width: 95vw;
+    padding: 1em;
+  }
+}
