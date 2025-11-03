@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SciCal Replica (Design Only)</title>
+  <title>Casio fx-82MS Replica (Design Only)</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="calculator">
-    <header class="calc-header">
-      <span class="brand">SciCal</span>
-    </header>
-
-    <!-- LCD DISPLAY -->
-    <div class="display">
-      <div class="display-line small">sin 63°52'41"</div>
-      <div class="display-line large">8.978590120</div>
+    <div class="brand">
+      <span class="casio">CASIO</span>
+      <span class="model">S-V.P.A.M.</span>
+      <span class="submodel">fx-82MS</span>
     </div>
 
-    <!-- NAVIGATION PAD AREA -->
-    <div class="nav-section">
+    <div class="display">
+      <div class="small">sin 63°52'41"</div>
+      <div class="large">8.978590120</div>
+    </div>
+
+    <!-- circular pad area -->
+    <div class="pad-section">
       <button class="side-btn left"></button>
       <div class="nav-circle">
         <button class="nav up"></button>
@@ -31,63 +32,88 @@
       <button class="side-btn right"></button>
     </div>
 
-    <!-- BUTTON GRID -->
-    <div class="keypad">
+    <!-- black scientific function keys -->
+    <div class="black-keys">
       <div class="row">
-        <button class="btn shift">SHIFT</button>
-        <button class="btn alpha">ALPHA</button>
-        <button class="btn fn">MODE</button>
-        <button class="btn fn">ON</button>
+        <button class="btn yellow">SHIFT</button>
+        <button class="btn red-text">ALPHA</button>
+        <button class="btn black">MODE</button>
+        <button class="btn black">CLR</button>
+        <button class="btn black">ON</button>
+      </div>
+      <div class="row">
+        <button class="btn black">x²</button>
+        <button class="btn black">√</button>
+        <button class="btn black">x⁻¹</button>
+        <button class="btn black">log</button>
+        <button class="btn black">ln</button>
+      </div>
+      <div class="row">
+        <button class="btn black">sin</button>
+        <button class="btn black">cos</button>
+        <button class="btn black">tan</button>
+        <button class="btn black">EXP</button>
+        <button class="btn black">Ans</button>
+      </div>
+      <div class="row">
+        <button class="btn black">(−)</button>
+        <button class="btn black">x³</button>
+        <button class="btn black">x!</button>
+        <button class="btn black">Pol</button>
+        <button class="btn black">Rec</button>
+      </div>
+      <div class="row">
+        <button class="btn black">M+</button>
+        <button class="btn black">M−</button>
+        <button class="btn black">ENG</button>
+        <button class="btn black">RCL</button>
+        <button class="btn black">STO</button>
+      </div>
+      <div class="row">
+        <button class="btn black">(-)</button>
+        <button class="btn black">hyp</button>
+        <button class="btn black">sin⁻¹</button>
+        <button class="btn black">cos⁻¹</button>
+        <button class="btn black">tan⁻¹</button>
+      </div>
+    </div>
+
+    <!-- grey number pad -->
+    <div class="grey-keys">
+      <div class="row">
+        <button class="btn grey">7</button>
+        <button class="btn grey">8</button>
+        <button class="btn grey">9</button>
+        <button class="btn grey">DEL</button>
         <button class="btn red">AC</button>
-        <button class="btn red">DEL</button>
       </div>
       <div class="row">
-        <button class="btn fn">x²</button>
-        <button class="btn fn">√</button>
-        <button class="btn fn">x⁻¹</button>
-        <button class="btn fn">log</button>
-        <button class="btn fn">ln</button>
-        <button class="btn fn">(-)</button>
+        <button class="btn grey">4</button>
+        <button class="btn grey">5</button>
+        <button class="btn grey">6</button>
+        <button class="btn grey">×</button>
+        <button class="btn grey">÷</button>
       </div>
       <div class="row">
-        <button class="btn fn">sin</button>
-        <button class="btn fn">cos</button>
-        <button class="btn fn">tan</button>
-        <button class="btn fn">EXP</button>
-        <button class="btn fn">Ans</button>
-        <button class="btn fn">M−</button>
+        <button class="btn grey">1</button>
+        <button class="btn grey">2</button>
+        <button class="btn grey">3</button>
+        <button class="btn grey">+</button>
+        <button class="btn grey">−</button>
       </div>
       <div class="row">
-        <button class="btn num">7</button>
-        <button class="btn num">8</button>
-        <button class="btn num">9</button>
-        <button class="btn op">÷</button>
-        <button class="btn fn">Pol</button>
-        <button class="btn fn">Rec</button>
+        <button class="btn grey">0</button>
+        <button class="btn grey">.</button>
+        <button class="btn grey">EXP</button>
+        <button class="btn grey">π</button>
+        <button class="btn grey">Ans</button>
       </div>
       <div class="row">
-        <button class="btn num">4</button>
-        <button class="btn num">5</button>
-        <button class="btn num">6</button>
-        <button class="btn op">×</button>
-        <button class="btn fn">(</button>
-        <button class="btn fn">)</button>
-      </div>
-      <div class="row">
-        <button class="btn num">1</button>
-        <button class="btn num">2</button>
-        <button class="btn num">3</button>
-        <button class="btn op">−</button>
-        <button class="btn fn">x!</button>
-        <button class="btn fn">π</button>
-      </div>
-      <div class="row">
-        <button class="btn num">0</button>
-        <button class="btn num">.</button>
-        <button class="btn fn">Ran#</button>
-        <button class="btn op">+</button>
-        <button class="btn eq">=</button>
-        <button class="btn fn">MRC</button>
+        <button class="btn grey">Ran#</button>
+        <button class="btn grey">(</button>
+        <button class="btn grey">)</button>
+        <button class="btn grey">x!</button>
+        <button class="btn grey">MRC</button>
       </div>
     </div>
   </div>
