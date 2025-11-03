@@ -1,88 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SciCal - fx82MS Replica</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciCal Replica (Design Only)</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="calc-container">
-    <div class="calculator">
-      <header class="calc-header">
-        <span class="brand">SciCal</span>
-      </header>
+  <div class="calculator">
+    <header class="calc-header">
+      <span class="brand">SciCal</span>
+    </header>
 
-      <!-- LCD DISPLAY -->
-      <div class="display">
-        <div class="display-line small">sin 63°52'41"</div>
-        <div class="display-line large">8.978590120</div>
+    <!-- LCD DISPLAY -->
+    <div class="display">
+      <div class="display-line small">sin 63°52'41"</div>
+      <div class="display-line large">8.978590120</div>
+    </div>
+
+    <!-- NAVIGATION PAD AREA -->
+    <div class="nav-section">
+      <button class="side-btn left"></button>
+      <div class="nav-circle">
+        <button class="nav up"></button>
+        <button class="nav left"></button>
+        <button class="nav center"></button>
+        <button class="nav right"></button>
+        <button class="nav down"></button>
       </div>
+      <button class="side-btn right"></button>
+    </div>
 
-      <!-- GREY SIDE BUTTONS + CIRCLE PAD -->
-      <div class="control-area">
-        <button class="btn grey-btn">MODE</button>
-        <div class="nav-pad">
-          <button class="nav up"></button>
-          <button class="nav left"></button>
-          <button class="nav center"></button>
-          <button class="nav right"></button>
-          <button class="nav down"></button>
-        </div>
-        <button class="btn grey-btn">CLR</button>
-      </div>
-
-      <!-- MAIN KEYPAD -->
-      <div class="main-keys">
-        <!-- Row 1 -->
+    <!-- BUTTON GRID -->
+    <div class="keypad">
+      <div class="row">
         <button class="btn shift">SHIFT</button>
         <button class="btn alpha">ALPHA</button>
         <button class="btn fn">MODE</button>
         <button class="btn fn">ON</button>
         <button class="btn red">AC</button>
         <button class="btn red">DEL</button>
-
-        <!-- Row 2 -->
+      </div>
+      <div class="row">
         <button class="btn fn">x²</button>
         <button class="btn fn">√</button>
         <button class="btn fn">x⁻¹</button>
         <button class="btn fn">log</button>
         <button class="btn fn">ln</button>
         <button class="btn fn">(-)</button>
-
-        <!-- Row 3 -->
+      </div>
+      <div class="row">
         <button class="btn fn">sin</button>
         <button class="btn fn">cos</button>
         <button class="btn fn">tan</button>
         <button class="btn fn">EXP</button>
         <button class="btn fn">Ans</button>
         <button class="btn fn">M−</button>
-
-        <!-- Row 4 -->
+      </div>
+      <div class="row">
         <button class="btn num">7</button>
         <button class="btn num">8</button>
         <button class="btn num">9</button>
         <button class="btn op">÷</button>
         <button class="btn fn">Pol</button>
         <button class="btn fn">Rec</button>
-
-        <!-- Row 5 -->
+      </div>
+      <div class="row">
         <button class="btn num">4</button>
         <button class="btn num">5</button>
         <button class="btn num">6</button>
         <button class="btn op">×</button>
         <button class="btn fn">(</button>
         <button class="btn fn">)</button>
-
-        <!-- Row 6 -->
+      </div>
+      <div class="row">
         <button class="btn num">1</button>
         <button class="btn num">2</button>
         <button class="btn num">3</button>
         <button class="btn op">−</button>
         <button class="btn fn">x!</button>
         <button class="btn fn">π</button>
-
-        <!-- Row 7 -->
+      </div>
+      <div class="row">
         <button class="btn num">0</button>
         <button class="btn num">.</button>
         <button class="btn fn">Ran#</button>
