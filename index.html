@@ -13,39 +13,45 @@
         <span class="brand">SciCal</span>
       </header>
 
-      <!-- DISPLAY -->
+      <!-- LCD DISPLAY -->
       <div class="display">
-        <div class="display-line small"></div>
-        <div class="display-line large"></div>
+        <div class="display-line small">sin 63° 52′ 41″</div>
+        <div class="display-line large">8.978590120</div>
       </div>
 
-      <!-- BUTTON PANEL -->
+      <!-- GREY SIDE BUTTONS + CENTER PAD -->
+      <div class="control-row">
+        <button class="btn grey-btn small">MODE</button>
+        <div class="nav-pad">
+          <button class="nav up"></button>
+          <button class="nav left"></button>
+          <button class="nav center"></button>
+          <button class="nav right"></button>
+          <button class="nav down"></button>
+        </div>
+        <button class="btn grey-btn small">CLR</button>
+      </div>
+
+      <!-- MAIN BUTTON GRID -->
       <div class="buttons">
-        <!-- Row 1 -->
+
+        <!-- Top row (shift/alpha/red) -->
         <button class="btn shift">SHIFT</button>
         <button class="btn alpha">ALPHA</button>
         <button class="btn fn">MODE</button>
         <button class="btn fn">ON</button>
-        <button class="btn fn">AC</button>
-        <button class="btn fn">DEL</button>
+        <button class="btn red">AC</button>
+        <button class="btn red">DEL</button>
 
-        <!-- Row 2 -->
-        <button class="btn fn">←</button>
-        <button class="btn fn">→</button>
-        <button class="btn fn">↑</button>
-        <button class="btn fn">↓</button>
-        <button class="btn fn">ENG</button>
-        <button class="btn fn">M+</button>
-
-        <!-- Row 3 -->
+        <!-- 2nd scientific row -->
         <button class="btn fn">x²</button>
         <button class="btn fn">√</button>
         <button class="btn fn">x⁻¹</button>
         <button class="btn fn">log</button>
         <button class="btn fn">ln</button>
-        <button class="btn fn">(-)</button>
+        <button class="btn fn">(−)</button>
 
-        <!-- Row 4 -->
+        <!-- 3rd scientific row -->
         <button class="btn fn">sin</button>
         <button class="btn fn">cos</button>
         <button class="btn fn">tan</button>
@@ -53,7 +59,7 @@
         <button class="btn fn">Ans</button>
         <button class="btn fn">M−</button>
 
-        <!-- Row 5 -->
+        <!-- Number rows -->
         <button class="btn num">7</button>
         <button class="btn num">8</button>
         <button class="btn num">9</button>
@@ -61,7 +67,6 @@
         <button class="btn fn">Pol</button>
         <button class="btn fn">Rec</button>
 
-        <!-- Row 6 -->
         <button class="btn num">4</button>
         <button class="btn num">5</button>
         <button class="btn num">6</button>
@@ -69,7 +74,6 @@
         <button class="btn fn">(</button>
         <button class="btn fn">)</button>
 
-        <!-- Row 7 -->
         <button class="btn num">1</button>
         <button class="btn num">2</button>
         <button class="btn num">3</button>
@@ -77,7 +81,6 @@
         <button class="btn fn">x!</button>
         <button class="btn fn">π</button>
 
-        <!-- Row 8 -->
         <button class="btn num">0</button>
         <button class="btn num">.</button>
         <button class="btn fn">Ran#</button>
