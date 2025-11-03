@@ -1,7 +1,4 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
+* { box-sizing: border-box; font-family: Arial, sans-serif; }
 
 body {
   background: radial-gradient(circle at center, #111 0%, #000 100%);
@@ -12,23 +9,23 @@ body {
   margin: 0;
 }
 
-/* Container: keeps proportion when zoomed */
+/* Main container with preserved aspect ratio */
 .calc-container {
-  width: 340px;               /* narrower width */
-  aspect-ratio: 0.55 / 1;     /* maintain tall shape */
-  max-width: 95vw;
+  width: 350px;
+  aspect-ratio: 0.55/1;
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 95vw;
 }
 
-/* === Calculator Body === */
+/* Calculator body */
 .calculator {
   position: relative;
   width: 100%;
-  background: linear-gradient(180deg, #232323 0%, #0f0f0f 100%);
-  border-radius: 55px;
-  padding: 30px 20px 40px 20px;
+  background: linear-gradient(180deg, #242424 0%, #0f0f0f 100%);
+  border-radius: 60px;
+  padding: 25px 20px 40px;
   box-shadow:
     0 0 0 2px #000,
     0 25px 50px rgba(0, 0, 0, 0.9),
@@ -38,135 +35,119 @@ body {
   align-items: center;
 }
 
-/* Curved top shading */
+/* Top curvature highlight */
 .calculator::before {
   content: "";
   position: absolute;
   top: -25px;
   left: 0;
   width: 100%;
-  height: 60px;
-  background: radial-gradient(ellipse at top center, #3d3d3d 0%, transparent 75%);
+  height: 70px;
+  background: radial-gradient(ellipse at top center, #3d3d3d 0%, transparent 80%);
   border-top-left-radius: 90px;
   border-top-right-radius: 90px;
 }
 
-/* === Header (SciCal text) === */
+/* Brand label */
 .calc-header {
   text-align: center;
   color: #00ffcc;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.4em;
   margin-bottom: 10px;
   text-shadow: 0 0 6px #00ffcc;
 }
 
-/* === LCD Display === */
+/* LCD display */
 .display {
   background: linear-gradient(180deg, #565c45 0%, #424732 100%);
   border-radius: 10px;
   box-shadow: inset 0 0 10px #000;
   width: 90%;
   padding: 10px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   color: #b8ff9e;
   font-family: "Courier New", monospace;
 }
+.display-line { text-align: right; height: 1.3em; }
+.display-line.small { font-size: 0.9em; color: #a0e6a0; }
+.display-line.large { font-size: 1.5em; font-weight: bold; color: #ccffb0; }
 
-.display-line {
-  text-align: right;
-  height: 1.3em;
-  overflow: hidden;
-  white-space: nowrap;
+/* Control row (side grey buttons + circle pad) */
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 15px;
 }
 
-.display-line.small {
-  font-size: 0.9em;
-  color: #a0e6a0;
+.grey-btn {
+  background: linear-gradient(to bottom, #bbb, #888);
+  color: #000;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 0.8em;
+  box-shadow: 0 4px 0 #555;
 }
 
-.display-line.large {
-  font-size: 1.6em;
-  font-weight: bold;
-  color: #ccffb0;
+.nav-pad {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle at center, #888 0%, #444 100%);
+  border-radius: 50%;
+  box-shadow: inset 0 4px 10px #000;
 }
 
-/* === Buttons Grid === */
+.nav {
+  position: absolute;
+  background: #666;
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 2px 3px #000;
+}
+.nav.center { top: 25px; left: 25px; width: 20px; height: 20px; border-radius: 50%; background: #555; }
+.nav.up { top: 5px; left: 25px; }
+.nav.down { bottom: 5px; left: 25px; }
+.nav.left { left: 5px; top: 25px; }
+.nav.right { right: 5px; top: 25px; }
+
+/* Button grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(8, 55px); /* makes it taller */
+  grid-auto-rows: 50px;
   gap: 8px;
   width: 95%;
-  justify-items: stretch;
-  align-items: stretch;
 }
 
-/* === Button Styling === */
+/* Button base style */
 .btn {
   border: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  color: #fff;
-  font-size: 0.95em;
+  font-size: 0.9em;
   background: linear-gradient(to bottom, #333, #111);
-  box-shadow:
-    0 4px 0 #000,
-    0 6px 10px rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 0 #000, 0 6px 10px rgba(0,0,0,0.7);
   transition: transform 0.08s, box-shadow 0.08s;
 }
+.btn:active { transform: translateY(2px); box-shadow: 0 2px 3px rgba(0,0,0,0.4); }
 
-/* Press effect */
-.btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
-}
+/* Color groups */
+.btn.num { background: linear-gradient(to bottom, #4b4b4b, #1e1e1e); }
+.btn.op { background: linear-gradient(to bottom, #005f87, #003c58); }
+.btn.eq { background: linear-gradient(to bottom, #00796b, #004f45); }
+.btn.fn { background: linear-gradient(to bottom, #555, #333); color: #ffd94d; }
+.btn.shift { background: linear-gradient(to bottom, #666, #333); color: #ffeb3b; }
+.btn.alpha { background: linear-gradient(to bottom, #666, #333); color: #ff5252; }
+.btn.red { background: linear-gradient(to bottom, #c44, #600); color: #fff; }
 
-/* === Color Variants === */
-.btn.num {
-  background: linear-gradient(to bottom, #4b4b4b, #1e1e1e);
-}
-
-.btn.op {
-  background: linear-gradient(to bottom, #006b9b, #003a55);
-}
-
-.btn.eq {
-  background: linear-gradient(to bottom, #00796b, #004f45);
-  color: #fff;
-}
-
-.btn.fn {
-  background: linear-gradient(to bottom, #555, #333);
-  color: #ffd94d;
-}
-
-.btn.shift {
-  background: linear-gradient(to bottom, #666, #333);
-  color: #ffeb3b;
-}
-
-.btn.alpha {
-  background: linear-gradient(to bottom, #666, #333);
-  color: #ff5252;
-}
-
-/* === Text Shadow === */
-.btn {
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
-  letter-spacing: 0.3px;
-}
-
-/* === Scale Responsively but preserve ratio === */
-@media (max-width: 480px) {
-  .calc-container {
-    transform: scale(0.85);
-  }
-}
-
-@media (max-width: 400px) {
-  .calc-container {
-    transform: scale(0.75);
-  }
-}
+/* Responsive scale */
+@media (max-width: 500px) { .calc-container { transform: scale(0.9); } }
+@media (max-width: 420px) { .calc-container { transform: scale(0.8); } }
