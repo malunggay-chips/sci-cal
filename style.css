@@ -1,4 +1,7 @@
-* { box-sizing: border-box; font-family: Arial, sans-serif; }
+* {
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
 
 body {
   background: radial-gradient(circle at center, #111 0%, #000 100%);
@@ -9,145 +12,193 @@ body {
   margin: 0;
 }
 
-/* Main container with preserved aspect ratio */
 .calc-container {
-  width: 350px;
-  aspect-ratio: 0.55/1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 420px;
   max-width: 95vw;
 }
 
-/* Calculator body */
+/* === CALCULATOR BODY === */
 .calculator {
   position: relative;
-  width: 100%;
-  background: linear-gradient(180deg, #242424 0%, #0f0f0f 100%);
-  border-radius: 60px;
-  padding: 25px 20px 40px;
+  background: linear-gradient(180deg, #232323 0%, #0f0f0f 100%);
+  border-radius: 45px;
+  padding: 25px 25px 35px 25px;
   box-shadow:
     0 0 0 2px #000,
-    0 25px 50px rgba(0, 0, 0, 0.9),
+    0 15px 40px rgba(0, 0, 0, 0.9),
     inset 0 10px 20px rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Top curvature highlight */
+/* Curved Top */
 .calculator::before {
   content: "";
   position: absolute;
   top: -25px;
   left: 0;
   width: 100%;
-  height: 70px;
-  background: radial-gradient(ellipse at top center, #3d3d3d 0%, transparent 80%);
-  border-top-left-radius: 90px;
-  border-top-right-radius: 90px;
+  height: 60px;
+  background: radial-gradient(ellipse at top center, #3c3c3c 0%, transparent 70%);
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
 }
 
-/* Brand label */
+/* === HEADER === */
 .calc-header {
   text-align: center;
-  color: #00ffcc;
+  color: #00e7e7;
   font-weight: bold;
   font-size: 1.4em;
   margin-bottom: 10px;
-  text-shadow: 0 0 6px #00ffcc;
+  text-shadow: 0 0 6px #00e7e7;
 }
 
-/* LCD display */
+/* === DISPLAY === */
 .display {
-  background: linear-gradient(180deg, #565c45 0%, #424732 100%);
-  border-radius: 10px;
-  box-shadow: inset 0 0 10px #000;
+  background: linear-gradient(180deg, #4b4f39 0%, #3a3e2d 100%);
+  border-radius: 12px;
+  box-shadow: inset 0 0 12px #000;
   width: 90%;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin-bottom: 15px;
   color: #b8ff9e;
   font-family: "Courier New", monospace;
 }
-.display-line { text-align: right; height: 1.3em; }
-.display-line.small { font-size: 0.9em; color: #a0e6a0; }
-.display-line.large { font-size: 1.5em; font-weight: bold; color: #ccffb0; }
-
-/* Control row (side grey buttons + circle pad) */
-.control-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin-bottom: 15px;
+.display-line {
+  text-align: right;
+  height: 1.4em;
+  overflow: hidden;
+}
+.display-line.small {
+  font-size: 0.9em;
+  color: #a0e6a0;
+}
+.display-line.large {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ccffb0;
 }
 
+/* === CONTROL AREA === */
+.control-area {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  justify-items: center;
+  margin: 10px 0 20px 0;
+}
+
+/* Grey Buttons */
 .grey-btn {
-  background: linear-gradient(to bottom, #bbb, #888);
-  color: #000;
+  background: linear-gradient(to bottom, #bdbdbd, #888);
+  color: #111;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 10px 18px;
   font-size: 0.8em;
+  font-weight: bold;
   box-shadow: 0 4px 0 #555;
 }
 
+/* Circular Navigation Pad */
 .nav-pad {
   position: relative;
-  width: 70px;
-  height: 70px;
-  background: radial-gradient(circle at center, #888 0%, #444 100%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at center, #888 0%, #333 100%);
   border-radius: 50%;
-  box-shadow: inset 0 4px 10px #000;
+  box-shadow: inset 0 5px 12px #000;
 }
 
 .nav {
   position: absolute;
   background: #666;
   border: none;
-  border-radius: 4px;
   width: 20px;
   height: 20px;
-  box-shadow: 0 2px 3px #000;
+  border-radius: 4px;
 }
-.nav.center { top: 25px; left: 25px; width: 20px; height: 20px; border-radius: 50%; background: #555; }
-.nav.up { top: 5px; left: 25px; }
-.nav.down { bottom: 5px; left: 25px; }
-.nav.left { left: 5px; top: 25px; }
-.nav.right { right: 5px; top: 25px; }
+.nav.center {
+  top: 30px; left: 30px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #555;
+}
+.nav.up { top: 6px; left: 30px; }
+.nav.down { bottom: 6px; left: 30px; }
+.nav.left { top: 30px; left: 6px; }
+.nav.right { top: 30px; right: 6px; }
 
-/* Button grid */
-.buttons {
+/* === MAIN KEYPAD === */
+.main-keys {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 50px;
+  grid-auto-rows: 52px;
   gap: 8px;
-  width: 95%;
+  width: 92%;
 }
 
-/* Button base style */
+/* === BUTTON STYLES === */
 .btn {
   border: none;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
+  color: #fff;
   font-size: 0.9em;
   background: linear-gradient(to bottom, #333, #111);
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0,0,0,0.6);
-  box-shadow: 0 4px 0 #000, 0 6px 10px rgba(0,0,0,0.7);
+  box-shadow:
+    0 4px 0 #000,
+    0 6px 10px rgba(0, 0, 0, 0.7);
   transition: transform 0.08s, box-shadow 0.08s;
 }
-.btn:active { transform: translateY(2px); box-shadow: 0 2px 3px rgba(0,0,0,0.4); }
 
-/* Color groups */
-.btn.num { background: linear-gradient(to bottom, #4b4b4b, #1e1e1e); }
-.btn.op { background: linear-gradient(to bottom, #005f87, #003c58); }
-.btn.eq { background: linear-gradient(to bottom, #00796b, #004f45); }
-.btn.fn { background: linear-gradient(to bottom, #555, #333); color: #ffd94d; }
-.btn.shift { background: linear-gradient(to bottom, #666, #333); color: #ffeb3b; }
-.btn.alpha { background: linear-gradient(to bottom, #666, #333); color: #ff5252; }
-.btn.red { background: linear-gradient(to bottom, #c44, #600); color: #fff; }
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
 
-/* Responsive scale */
-@media (max-width: 500px) { .calc-container { transform: scale(0.9); } }
-@media (max-width: 420px) { .calc-container { transform: scale(0.8); } }
+/* === COLOR THEMES === */
+.btn.num {
+  background: linear-gradient(to bottom, #4b4b4b, #1e1e1e);
+}
+
+.btn.op {
+  background: linear-gradient(to bottom, #005f87, #003c58);
+}
+
+.btn.eq {
+  background: linear-gradient(to bottom, #00796b, #004f45);
+}
+
+.btn.fn {
+  background: linear-gradient(to bottom, #555, #333);
+  color: #ffe066;
+}
+
+.btn.shift {
+  background: linear-gradient(to bottom, #555, #333);
+  color: #ffeb3b;
+}
+
+.btn.alpha {
+  background: linear-gradient(to bottom, #555, #333);
+  color: #ff5252;
+}
+
+.btn.red {
+  background: linear-gradient(to bottom, #d22, #800);
+}
+
+/* === RESPONSIVE SCALE === */
+@media (max-width: 550px) {
+  .calc-container { transform: scale(0.9); }
+}
+@media (max-width: 450px) {
+  .calc-container { transform: scale(0.8); }
+}
+@media (max-width: 380px) {
+  .calc-container { transform: scale(0.7); }
+}
