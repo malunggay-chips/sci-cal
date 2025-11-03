@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SciCal - CSS Replica</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciCal - fx82MS Replica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="calculator">
-    <div class="header">
-      <span class="brand">SciCal</span>
-    </div>
+  <div class="calc-container">
+    <div class="calculator">
+      <header class="calc-header">
+        <span class="brand">SciCal</span>
+      </header>
 
-    <div class="display">
-      <div class="display-top"></div>
-      <div class="display-bottom"></div>
-    </div>
-
-    <div class="button-area">
-
-      <!-- Top controls -->
-      <div class="row">
-        <button class="btn fn shift">SHIFT</button>
-        <button class="btn fn alpha">ALPHA</button>
-        <button class="btn fn">MODE</button>
-        <button class="btn fn">ON</button>
+      <!-- DISPLAY -->
+      <div class="display">
+        <div class="display-line small"></div>
+        <div class="display-line large"></div>
       </div>
 
-      <!-- Scientific functions -->
-      <div class="row">
+      <!-- BUTTON PANEL -->
+      <div class="buttons">
+        <!-- Row 1 -->
+        <button class="btn shift">SHIFT</button>
+        <button class="btn alpha">ALPHA</button>
+        <button class="btn fn">MODE</button>
+        <button class="btn fn">ON</button>
+        <button class="btn fn">AC</button>
+        <button class="btn fn">DEL</button>
+
+        <!-- Row 2 -->
+        <button class="btn fn">←</button>
+        <button class="btn fn">→</button>
+        <button class="btn fn">↑</button>
+        <button class="btn fn">↓</button>
+        <button class="btn fn">ENG</button>
+        <button class="btn fn">M+</button>
+
+        <!-- Row 3 -->
+        <button class="btn fn">x²</button>
+        <button class="btn fn">√</button>
+        <button class="btn fn">x⁻¹</button>
+        <button class="btn fn">log</button>
+        <button class="btn fn">ln</button>
+        <button class="btn fn">(-)</button>
+
+        <!-- Row 4 -->
         <button class="btn fn">sin</button>
         <button class="btn fn">cos</button>
         <button class="btn fn">tan</button>
-        <button class="btn fn">x⁻¹</button>
-      </div>
-      <div class="row">
-        <button class="btn fn">log</button>
-        <button class="btn fn">ln</button>
-        <button class="btn fn">√</button>
-        <button class="btn op">^</button>
-      </div>
+        <button class="btn fn">EXP</button>
+        <button class="btn fn">Ans</button>
+        <button class="btn fn">M−</button>
 
-      <!-- Numeric pad -->
-      <div class="row">
+        <!-- Row 5 -->
         <button class="btn num">7</button>
         <button class="btn num">8</button>
         <button class="btn num">9</button>
         <button class="btn op">÷</button>
-      </div>
-      <div class="row">
+        <button class="btn fn">Pol</button>
+        <button class="btn fn">Rec</button>
+
+        <!-- Row 6 -->
         <button class="btn num">4</button>
         <button class="btn num">5</button>
         <button class="btn num">6</button>
         <button class="btn op">×</button>
-      </div>
-      <div class="row">
+        <button class="btn fn">(</button>
+        <button class="btn fn">)</button>
+
+        <!-- Row 7 -->
         <button class="btn num">1</button>
         <button class="btn num">2</button>
         <button class="btn num">3</button>
         <button class="btn op">−</button>
-      </div>
-      <div class="row">
+        <button class="btn fn">x!</button>
+        <button class="btn fn">π</button>
+
+        <!-- Row 8 -->
         <button class="btn num">0</button>
         <button class="btn num">.</button>
-        <button class="btn fn">Ans</button>
+        <button class="btn fn">Ran#</button>
+        <button class="btn op">+</button>
         <button class="btn eq">=</button>
+        <button class="btn fn">MRC</button>
       </div>
-
     </div>
   </div>
 </body>
