@@ -1,159 +1,137 @@
-* {
-  box-sizing: border-box;
-  font-family: "Arial", sans-serif;
-}
+* { box-sizing: border-box; }
 
 body {
   background: radial-gradient(circle at center, #111, #000);
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   margin: 0;
 }
 
+/* === Calculator Body === */
 .calculator {
-  width: 380px;
-  background: linear-gradient(180deg, #2d2b39, #15121f);
+  width: 420px;
   border-radius: 40px;
-  padding: 20px;
-  box-shadow: inset 0 4px 10px rgba(255,255,255,0.05),
-              0 15px 25px rgba(0,0,0,0.8);
+  background: linear-gradient(180deg, #2d2a39, #16131f);
+  padding: 20px 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8),
+              inset 0 4px 8px rgba(255,255,255,0.05);
 }
 
 /* === Branding === */
-.brand {
-  text-align: left;
-  color: #fff;
-  font-size: 0.9em;
-  position: relative;
-}
-
-.brand .casio {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-.brand .model {
-  color: #ff5da6;
-  font-weight: bold;
-  position: absolute;
-  right: 100px;
-}
-
-.brand .submodel {
-  position: absolute;
-  right: 10px;
-  color: #aeb0bb;
-  font-size: 0.85em;
-}
-
-/* === Display === */
-.display {
-  background: linear-gradient(180deg, #b8c2a0, #9fa88a);
-  height: 60px;
-  margin: 20px 0;
-  border-radius: 8px;
-  padding: 5px 10px;
-  color: #1c1c1c;
-  box-shadow: inset 0 3px 5px rgba(0,0,0,0.3);
-  font-family: "Courier New", monospace;
-}
-
-.display .small {
-  text-align: right;
-  font-size: 0.85em;
-}
-
-.display .large {
-  text-align: right;
-  font-size: 1.6em;
-  font-weight: bold;
-}
-
-/* === Nav pad === */
-.pad-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.top-label {
+  text-align: center;
+  color: #00e0c0;
+  font-family: Arial Black, sans-serif;
+  text-shadow: 0 0 6px #00e0c0;
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.side-btn {
+/* === Display === */
+.screen {
+  background: linear-gradient(180deg, #a3a97f, #8d9370);
+  border-radius: 8px;
+  box-shadow: inset 0 4px 6px rgba(0,0,0,0.6);
+  padding: 10px 8px;
+  color: #162010;
+  margin-bottom: 15px;
+  font-family: "Courier New", monospace;
+}
+
+.line.small {
+  text-align: right;
+  font-size: 0.9em;
+  color: #c6e9a5;
+}
+.line.large {
+  text-align: right;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #e7ffcf;
+}
+
+/* === Nav Pad === */
+.nav-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.nav-side {
   width: 40px;
   height: 25px;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #888, #444);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #777, #444);
   border: none;
   box-shadow: inset 0 2px 4px rgba(255,255,255,0.1),
               0 2px 4px rgba(0,0,0,0.6);
 }
 
-.nav-circle {
+.circle-pad {
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle at 30% 30%, #aaa, #555);
   border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #aaa, #555);
   position: relative;
-  box-shadow: inset 0 3px 5px rgba(255,255,255,0.2),
-              0 4px 8px rgba(0,0,0,0.8);
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.3),
+              0 4px 10px rgba(0,0,0,0.7);
 }
 
-.nav {
+.arrow {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   background: linear-gradient(180deg, #8e8e8e, #444);
   border-radius: 5px;
-  border: none;
 }
-.nav.center { top: 29px; left: 29px; }
-.nav.up { top: 5px; left: 29px; }
-.nav.down { bottom: 5px; left: 29px; }
-.nav.left { top: 29px; left: 5px; }
-.nav.right { top: 29px; right: 5px; }
 
-/* === Keypad general === */
+.arrow.center { top: 28px; left: 28px; }
+.arrow.up { top: 5px; left: 28px; }
+.arrow.down { bottom: 5px; left: 28px; }
+.arrow.left { top: 28px; left: 5px; }
+.arrow.right { top: 28px; right: 5px; }
+
+/* === Button Layout === */
+.black-section, .grey-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 6px;
+  gap: 6px;
 }
 
-.btn {
+.key {
   flex: 1;
-  margin: 2px;
-  padding: 6px 0;
-  border: none;
+  height: 42px;
   border-radius: 8px;
+  border: none;
   font-weight: bold;
   font-size: 0.9em;
-  color: #ffe06b;
-  background: linear-gradient(180deg, #3a3a3a, #1a1a1a);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.6);
+  cursor: pointer;
 }
 
-.btn.red { background: linear-gradient(180deg, #aa3030, #5a0000); color: #fff; }
-.btn.red-text { color: #ff4d4d; }
-.btn.yellow { color: #ffd94a; }
-.btn.grey {
-  background: linear-gradient(180deg, #7a7a82, #47474d);
+.key:active { transform: translateY(1px); }
+
+/* color themes */
+.black {
+  background: linear-gradient(180deg, #2c2c2c, #101010);
+  color: #ffe26b;
+}
+.grey {
+  background: linear-gradient(180deg, #818187, #4a4a50);
   color: #fff;
 }
-.btn.black {
-  background: linear-gradient(180deg, #2d2d2d, #101010);
-  color: #ffe06b;
+.red {
+  background: linear-gradient(180deg, #b33a3a, #5e0000);
+  color: #fff;
 }
-
-.btn:active {
-  transform: translateY(1px);
-}
-
-/* === Sections === */
-.black-keys {
-  margin: 10px 0 20px;
-}
-
-.grey-keys {
-  margin-top: 10px;
-}
+.yellow { color: #ffd94a; }
+.red-text { color: #ff5252; }
