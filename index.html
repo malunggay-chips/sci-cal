@@ -7,112 +7,87 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="calculator">
-    <div class="header">
-      <span class="brand">SciCal</span>
+  <div class="calculator-body">
+    <div class="calc-top">
+      <span class="brand-left">CASIO</span>
+      <span class="brand-center">S-V.P.A.M.</span>
+      <span class="brand-right">fx-82MS</span>
     </div>
 
-    <div class="screen">
-      <div class="line small">sin 63°52'41"</div>
-      <div class="line large">8.978590120</div>
+    <div class="calc-display">
+      <div class="display-small">sin 63°52'41''</div>
+      <div class="display-large">8.978590120</div>
     </div>
 
-    <!-- D-pad section -->
-    <div class="dpad-area">
-      <button class="side-btn"></button>
-      <div class="dpad">
-        <div class="arrow up"></div>
-        <div class="arrow left"></div>
-        <div class="arrow right"></div>
-        <div class="arrow down"></div>
-        <div class="arrow center"></div>
-      </div>
-      <button class="side-btn"></button>
+    <!-- Circular D-Pad -->
+    <div class="nav-cluster">
+      <div class="circle center"></div>
+      <div class="circle-btn up"></div>
+      <div class="circle-btn down"></div>
+      <div class="circle-btn left"></div>
+      <div class="circle-btn right"></div>
     </div>
 
-    <!-- Function (black) buttons -->
-    <div class="func-section">
-      <div class="row">
-        <button class="btn shift">SHIFT</button>
-        <button class="btn alpha">ALPHA</button>
-        <button class="btn fn">MODE</button>
-        <button class="btn fn">CLR</button>
-        <button class="btn fn">ON</button>
-      </div>
-      <div class="row">
-        <button class="btn fn">x²</button>
-        <button class="btn fn">√</button>
-        <button class="btn fn">x⁻¹</button>
-        <button class="btn fn">log</button>
-        <button class="btn fn">ln</button>
-      </div>
-      <div class="row">
-        <button class="btn fn">sin</button>
-        <button class="btn fn">cos</button>
-        <button class="btn fn">tan</button>
-        <button class="btn fn">EXP</button>
-        <button class="btn fn">Ans</button>
-      </div>
-      <div class="row">
-        <button class="btn fn">(−)</button>
-        <button class="btn fn">x³</button>
-        <button class="btn fn">x!</button>
-        <button class="btn fn">Pol</button>
-        <button class="btn fn">Rec</button>
-      </div>
-      <div class="row">
-        <button class="btn fn">M+</button>
-        <button class="btn fn">M−</button>
-        <button class="btn fn">ENG</button>
-        <button class="btn fn">RCL</button>
-        <button class="btn fn">STO</button>
-      </div>
-      <div class="row">
-        <button class="btn fn">hyp</button>
-        <button class="btn fn">sin⁻¹</button>
-        <button class="btn fn">cos⁻¹</button>
-        <button class="btn fn">tan⁻¹</button>
-        <button class="btn fn">(−)</button>
-      </div>
-    </div>
+    <!-- Buttons Area -->
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button class="btn shift yellow">SHIFT</button>
+      <button class="btn alpha red">ALPHA</button>
+      <button class="btn gray">MODE</button>
+      <button class="btn gray">CLR</button>
+      <button class="btn gray">ON</button>
 
-    <!-- Numeric (grey) buttons -->
-    <div class="num-section">
-      <div class="row">
-        <button class="btn grey">7</button>
-        <button class="btn grey">8</button>
-        <button class="btn grey">9</button>
-        <button class="btn red">DEL</button>
-        <button class="btn red">AC</button>
-      </div>
-      <div class="row">
-        <button class="btn grey">4</button>
-        <button class="btn grey">5</button>
-        <button class="btn grey">6</button>
-        <button class="btn grey">×</button>
-        <button class="btn grey">÷</button>
-      </div>
-      <div class="row">
-        <button class="btn grey">1</button>
-        <button class="btn grey">2</button>
-        <button class="btn grey">3</button>
-        <button class="btn grey">+</button>
-        <button class="btn grey">−</button>
-      </div>
-      <div class="row">
-        <button class="btn grey">0</button>
-        <button class="btn grey">.</button>
-        <button class="btn grey">EXP</button>
-        <button class="btn grey">π</button>
-        <button class="btn grey">Ans</button>
-      </div>
-      <div class="row">
-        <button class="btn grey">Ran#</button>
-        <button class="btn grey">(</button>
-        <button class="btn grey">)</button>
-        <button class="btn grey">x!</button>
-        <button class="btn grey">MRC</button>
-      </div>
+      <!-- Row 2 -->
+      <button class="btn black">x²</button>
+      <button class="btn black">√</button>
+      <button class="btn black">x⁻¹</button>
+      <button class="btn black">log</button>
+      <button class="btn black">ln</button>
+      <button class="btn black">(-)</button>
+
+      <!-- Row 3 -->
+      <button class="btn black">sin</button>
+      <button class="btn black">cos</button>
+      <button class="btn black">tan</button>
+      <button class="btn black">EXP</button>
+      <button class="btn black">Ans</button>
+      <button class="btn black">M+</button>
+
+      <!-- Row 4 -->
+      <button class="btn black">RCL</button>
+      <button class="btn black">ENG</button>
+      <button class="btn black">nCr</button>
+      <button class="btn black">nPr</button>
+      <button class="btn black">(</button>
+      <button class="btn black">)</button>
+
+      <!-- Row 5 (gray with red) -->
+      <button class="btn gray">7</button>
+      <button class="btn gray">8</button>
+      <button class="btn gray">9</button>
+      <button class="btn gray red-bg">DEL</button>
+      <button class="btn gray red-bg">AC</button>
+
+      <!-- Row 6 -->
+      <button class="btn gray">4</button>
+      <button class="btn gray">5</button>
+      <button class="btn gray">6</button>
+      <button class="btn gray">×</button>
+      <button class="btn gray">÷</button>
+
+      <!-- Row 7 -->
+      <button class="btn gray">1</button>
+      <button class="btn gray">2</button>
+      <button class="btn gray">3</button>
+      <button class="btn gray">+</button>
+      <button class="btn gray">−</button>
+
+      <!-- Row 8 -->
+      <button class="btn gray">0</button>
+      <button class="btn gray">.</button>
+      <button class="btn gray">EXP</button>
+      <button class="btn gray">Ans</button>
+      <button class="btn gray">=</button>
     </div>
   </div>
 </body>
