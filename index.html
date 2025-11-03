@@ -1,57 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SciCal - Scientific Calculator</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5" />
+  <title>SciCal — fx-82MS style</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="calculator">
-    <div class="brand">SciCal</div>
+  <main class="wrap">
+    <div class="calculator" id="calculator">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="svpam">S-V.P.A.M.</span>
+          <div class="scical">SciCal</div>
+        </div>
+        <div class="indicators">
+          <div id="drg-ind" class="small-ind">DEG</div>
+          <div id="mode-ind" class="small-ind"></div>
+        </div>
+      </header>
 
-    <div class="display">
-      <div id="expression" class="top-display"></div>
-      <div id="result" class="bottom-display">0</div>
+      <section class="display" aria-hidden="false">
+        <div id="expr" class="display-line expr"></div>
+        <div id="result" class="display-line result">0</div>
+      </section>
+
+      <section class="controls">
+        <!-- Top row function keys -->
+        <div class="row">
+          <button class="key small yellow" data-action="shift">SHIFT</button>
+          <button class="key small red" data-action="alpha">ALPHA</button>
+          <button class="key small" data-action="mode">MODE</button>
+          <button class="key small" data-action="on">ON</button>
+        </div>
+
+        <!-- Navigation pad row (visual only) -->
+        <div class="row nav-row">
+          <div class="nav-dummy"></div>
+          <div class="nav-circle"></div>
+          <div class="nav-dummy"></div>
+        </div>
+
+        <!-- Many fx-82MS-like buttons grouped -->
+        <div class="grid">
+          <!-- Row 1 -->
+          <button class="key fn" data-token="x^(-1)" data-shift="x!" title="x⁻¹">x⁻¹</button>
+          <button class="key fn" data-token="nCr" title="nCr">nCr</button>
+          <button class="key fn" data-token="Pol(" title="Pol(">Pol(</button>
+          <button class="key fn" data-token="x^3" title="x³">x³</button>
+
+          <!-- Row 2 -->
+          <button class="key fn" data-token="a/b/c" title="a b/c">a b/c</button>
+          <button class="key fn" id="sqrtBtn" data-token="√(" data-shift="^2" title="√">√</button>
+          <button class="key fn" data-token="x^2" title="x²">x²</button>
+          <button class="key fn" data-token="^" title="^">^</button>
+
+          <!-- Row 3 -->
+          <button class="key fn" id="logBtn" data-token="log(" data-shift="10^(" title="log">log</button>
+          <button class="key fn" id="lnBtn" data-token="ln(" data-shift="e^(" title="ln">ln</button>
+          <button class="key fn" data-token="(" title="(">(</button>
+          <button class="key fn" data-token=")" title=")">)</button>
+
+          <!-- Row 4 trig/hyp -->
+          <button class="key fn small" data-token="hyp" title="hyp">hyp</button>
+          <button class="key fn trig" data-token="sin(" data-shift="asin(" title="sin">sin</button>
+          <button class="key fn trig" data-token="cos(" data-shift="acos(" title="cos">cos</button>
+          <button class="key fn trig" data-token="tan(" data-shift="atan(" title="tan">tan</button>
+
+          <!-- Row 5 memory and other small -->
+          <button class="key mem" data-action="rcl">RCL</button>
+          <button class="key mem" data-action="eng">ENG</button>
+          <button class="key mem" data-token="," title=",">,</button>
+          <button class="key mem" data-action="mplus">M+</button>
+
+          <!-- Numeric rows -->
+          <button class="key num" data-token="7">7</button>
+          <button class="key num" data-token="8">8</button>
+          <button class="key num" data-token="9">9</button>
+          <button class="key red" data-action="del">DEL</button>
+
+          <button class="key num" data-token="4">4</button>
+          <button class="key num" data-token="5">5</button>
+          <button class="key num" data-token="6">6</button>
+          <button class="key op" data-token="*">×</button>
+
+          <button class="key num" data-token="1">1</button>
+          <button class="key num" data-token="2">2</button>
+          <button class="key num" data-token="3">3</button>
+          <button class="key op" data-token="-">−</button>
+
+          <button class="key small special" data-action="rnd" title="Rnd">Rnd</button>
+          <button class="key num" data-token="0">0</button>
+          <button class="key num" data-token=".">.</button>
+          <button class="key op" data-token="+">+</button>
+
+          <!-- Bottom row with EXP, Ans, %, =, AC -->
+          <button class="key special" data-action="exp">EXP</button>
+          <button class="key special" data-action="ans">Ans</button>
+          <button class="key special" data-token="%" title="%">%</button>
+          <button class="key eq" data-action="calc">=</button>
+
+        </div>
+
+        <!-- Footer row AC / M- / MR / DRG -->
+        <div class="row footer">
+          <button class="key red wide" data-action="ac">AC</button>
+          <button class="key mem" data-action="mminus">M-</button>
+          <button class="key mem" data-action="mr">MR</button>
+          <button class="key small" data-action="drg">DRG</button>
+        </div>
+      </section>
+
+      <footer class="credits">Click / Tap only • Designed to match fx-82MS look</footer>
     </div>
-
-    <div class="buttons">
-      <button class="btn fn" onclick="clearAll()">AC</button>
-      <button class="btn fn" onclick="deleteLast()">DEL</button>
-      <button class="btn fn" onclick="insert('(')">(</button>
-      <button class="btn fn" onclick="insert(')')">)</button>
-
-      <button class="btn fn" onclick="insert('sin(')">sin</button>
-      <button class="btn fn" onclick="insert('cos(')">cos</button>
-      <button class="btn fn" onclick="insert('tan(')">tan</button>
-      <button class="btn op" onclick="insert('^')">xʸ</button>
-
-      <button class="btn fn" onclick="insert('log(')">log</button>
-      <button class="btn fn" onclick="insert('ln(')">ln</button>
-      <button class="btn fn" onclick="insert('√(')">√</button>
-      <button class="btn op" onclick="insert('/')">÷</button>
-
-      <button class="btn num" onclick="insert('7')">7</button>
-      <button class="btn num" onclick="insert('8')">8</button>
-      <button class="btn num" onclick="insert('9')">9</button>
-      <button class="btn op" onclick="insert('*')">×</button>
-
-      <button class="btn num" onclick="insert('4')">4</button>
-      <button class="btn num" onclick="insert('5')">5</button>
-      <button class="btn num" onclick="insert('6')">6</button>
-      <button class="btn op" onclick="insert('-')">−</button>
-
-      <button class="btn num" onclick="insert('1')">1</button>
-      <button class="btn num" onclick="insert('2')">2</button>
-      <button class="btn num" onclick="insert('3')">3</button>
-      <button class="btn op" onclick="insert('+')">+</button>
-
-      <button class="btn fn" onclick="insert('Ans')">Ans</button>
-      <button class="btn num" onclick="insert('0')">0</button>
-      <button class="btn num" onclick="insert('.')">.</button>
-      <button class="btn eq" onclick="calculate()">=</button>
-    </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
