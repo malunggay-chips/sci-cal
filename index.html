@@ -1,122 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SciCal — fx-82MS visual replica</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SciCal - Scientific Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page">
-    <div class="calculator" id="calculator" aria-hidden="true">
-      <!-- Top branding -->
-      <div class="branding">
-        <div class="brand-left">CASIO</div>
-        <div class="brand-center">S-V.P.A.M.</div>
-        <div class="brand-right">fx-82MS</div>
-      </div>
+  <div class="calculator">
+    <div class="brand">
+      <span class="brand-left">SciCal</span>
+      <span class="brand-center">S-V.P.A.M.</span>
+      <span class="brand-right">FX-2025</span>
+    </div>
 
-      <!-- LCD -->
-      <div class="lcd">
-        <div class="lcd-top">sin 63°52'41"</div>
-        <div class="lcd-bottom">8.978590120</div>
-      </div>
+    <div class="display">
+      <div class="display-small">sin(30)+5×2</div>
+      <div class="display-large">15</div>
+    </div>
 
-      <!-- d-pad cluster (centered under lcd) -->
-      <div class="dpad">
-        <div class="dpad-large"></div>
-        <div class="dpad-small top"></div>
-        <div class="dpad-small left"></div>
-        <div class="dpad-small right"></div>
-        <div class="dpad-small bottom"></div>
-      </div>
+    <div class="buttons">
+      <!-- Row 1 -->
+      <button class="btn fn">SHIFT</button>
+      <button class="btn fn">MODE</button>
+      <button class="btn fn">DEG</button>
+      <button class="btn fn">RAD</button>
+      <button class="btn red">DEL</button>
+      <button class="btn red">AC</button>
 
-      <!-- Buttons: individually placed -->
-      <div class="keys">
+      <!-- Row 2 -->
+      <button class="btn func">sin</button>
+      <button class="btn func">cos</button>
+      <button class="btn func">tan</button>
+      <button class="btn func">log</button>
+      <button class="btn func">ln</button>
+      <button class="btn func">√</button>
 
-        <!-- Top small grey "pill" buttons row (left side) -->
-        <button id="b-shift" class="key small black ytext">SHIFT</button>
-        <button id="b-alpha" class="key small black rtext">ALPHA</button>
-        <button id="b-mode" class="key small light">MODE</button>
-        <button id="b-clr" class="key small light">CLR</button>
-        <button id="b-on" class="key small light">ON</button>
+      <!-- Row 3 -->
+      <button class="btn func">x²</button>
+      <button class="btn func">x⁻¹</button>
+      <button class="btn func">EXP</button>
+      <button class="btn func">π</button>
+      <button class="btn func">e</button>
+      <button class="btn func">Ans</button>
 
-        <!-- Scientific black keys (6 rows) -->
-        <!-- Row A (first scientific row under dpad) -->
-        <button id="b-x2" class="key black">x²</button>
-        <button id="b-sqrt" class="key black">√</button>
-        <button id="b-xinv" class="key black">x⁻¹</button>
-        <button id="b-log" class="key black">log</button>
-        <button id="b-ln" class="key black">ln</button>
+      <!-- Row 4 -->
+      <button class="btn num">(</button>
+      <button class="btn num">)</button>
+      <button class="btn num">7</button>
+      <button class="btn num">8</button>
+      <button class="btn num">9</button>
+      <button class="btn op">÷</button>
 
-        <!-- Row B -->
-        <button id="b-hyp" class="key black small-label">hyp</button>
-        <button id="b-sin" class="key black">sin</button>
-        <button id="b-cos" class="key black">cos</button>
-        <button id="b-tan" class="key black">tan</button>
-        <button id="b-exp" class="key black">EXP</button>
+      <!-- Row 5 -->
+      <button class="btn num">4</button>
+      <button class="btn num">5</button>
+      <button class="btn num">6</button>
+      <button class="btn op">×</button>
+      <button class="btn op">%</button>
+      <button class="btn op">x!</button>
 
-        <!-- Row C -->
-        <button id="b-leftparen" class="key black">()</button>
-        <button id="b-nCr" class="key black">nCr</button>
-        <button id="b-nPr" class="key black">nPr</button>
-        <button id="b-pol" class="key black">Pol</button>
-        <button id="b-rec" class="key black">Rec</button>
+      <!-- Row 6 -->
+      <button class="btn num">1</button>
+      <button class="btn num">2</button>
+      <button class="btn num">3</button>
+      <button class="btn op">−</button>
+      <button class="btn const">M+</button>
+      <button class="btn const">M−</button>
 
-        <!-- Row D -->
-        <button id="b-rcl" class="key black">RCL</button>
-        <button id="b-eng" class="key black">ENG</button>
-        <button id="b-sto" class="key black">STO</button>
-        <button id="b-mplus" class="key black">M+</button>
-        <button id="b-mminus" class="key black">M−</button>
-
-        <!-- Row E -->
-        <button id="b-invSin" class="key black small-label">sin⁻¹</button>
-        <button id="b-invCos" class="key black small-label">cos⁻¹</button>
-        <button id="b-invTan" class="key black small-label">tan⁻¹</button>
-        <button id="b-hold1" class="key black">x!</button>
-        <button id="b-pi" class="key black">π</button>
-
-        <!-- Grey numeric section — 5 rows -->
-        <!-- Row G1 -->
-        <button id="g7" class="key grey">7</button>
-        <button id="g8" class="key grey">8</button>
-        <button id="g9" class="key grey">9</button>
-        <button id="g-del" class="key grey red">DEL</button>
-        <button id="g-ac" class="key grey red">AC</button>
-
-        <!-- Row G2 -->
-        <button id="g4" class="key grey">4</button>
-        <button id="g5" class="key grey">5</button>
-        <button id="g6" class="key grey">6</button>
-        <button id="g-mul" class="key grey op">×</button>
-        <button id="g-div" class="key grey op">÷</button>
-
-        <!-- Row G3 -->
-        <button id="g1" class="key grey">1</button>
-        <button id="g2" class="key grey">2</button>
-        <button id="g3" class="key grey">3</button>
-        <button id="g-add" class="key grey op">+</button>
-        <button id="g-sub" class="key grey op">−</button>
-
-        <!-- Row G4 -->
-        <button id="g0" class="key grey big">0</button>
-        <button id="g-dot" class="key grey">.</button>
-        <button id="g-exp" class="key grey">EXP</button>
-        <button id="g-ans" class="key grey">Ans</button>
-        <button id="g-eq" class="key grey equal">=</button>
-
-        <!-- Row G5 -->
-        <button id="g-rnd" class="key grey">Ran#</button>
-        <button id="g-lpar" class="key grey">(</button>
-        <button id="g-rpar" class="key grey">)</button>
-        <button id="g-xfact" class="key grey">x!</button>
-        <button id="g-mrc" class="key grey">MRC</button>
-
-      </div> <!-- .keys -->
-
-      <!-- subtle decorative bottom notch -->
-      <div class="bottom-notch"></div>
+      <!-- Row 7 -->
+      <button class="btn num">0</button>
+      <button class="btn num">.</button>
+      <button class="btn const">MR</button>
+      <button class="btn const">MC</button>
+      <button class="btn op">+</button>
+      <button class="btn eq">=</button>
     </div>
   </div>
 </body>
