@@ -1,158 +1,270 @@
-* {
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  user-select: none;
+/* SciCal - fx-82MS visual-only (Option A: fixed-size/absolute layout) */
+
+:root{
+  --calc-w:420px;
+  --calc-h:920px;
+  --bg:#121212;
 }
 
-body {
-  background: radial-gradient(circle at center, #111, #000);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+html,body{height:100%;margin:0;background:var(--bg);font-family:Arial, Helvetica, sans-serif;}
+
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
 }
 
-.calculator-body {
-  position: relative;
-  width: 370px;
-  background: linear-gradient(180deg, #2c2b36, #1b1a24);
-  border-radius: 40px;
-  padding: 20px 15px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+/* Calculator outer body — fixed size for pixel-perfect layout */
+.calculator{
+  position:relative;
+  width:var(--calc-w);
+  height:var(--calc-h);
+  background: linear-gradient(180deg,#302f38 0%, #1a1920 100%);
+  border-radius:36px;
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.8),
+    inset 0 2px 0 rgba(255,255,255,0.02);
+  padding:18px;
+  overflow:hidden;
 }
 
-/* Header */
-.calc-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5px 0 10px;
-  color: #444;
-  font-weight: bold;
+/* Top gloss and subtle edges */
+.calculator::before{
+  content:"";
+  position:absolute;
+  top:-24px;
+  left:0;
+  width:100%;
+  height:80px;
+  pointer-events:none;
+  background: radial-gradient(ellipse at top center, rgba(255,255,255,0.06), transparent 45%);
+  border-top-left-radius:36px;
+  border-top-right-radius:36px;
 }
 
-.brand-left {
-  font-size: 1.1em;
-  color: #ccc;
+/* Branding row */
+.branding{
+  position:relative;
+  height:36px;
+  margin-bottom:8px;
+}
+.brand-left{
+  position:absolute;
+  left:10px;
+  top:2px;
+  color:#ddd;
+  font-weight:700;
+  font-size:16px;
+  letter-spacing:0.5px;
+}
+.brand-right{
+  position:absolute;
+  right:10px;
+  top:6px;
+  color:#cfcfd1;
+  font-size:13px;
+}
+.brand-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:10px;
+  color:#f07fa2; /* pink */
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:3px;
 }
 
-.brand-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1em;
-  color: #f56a9e;
-  font-weight: bold;
-  letter-spacing: 1px;
+/* LCD */
+.lcd{
+  position:relative;
+  width:86%;
+  height:78px;
+  left:7%;
+  border-radius:8px;
+  background: linear-gradient(180deg,#c6d0b1,#a9b38f);
+  box-shadow: inset 0 6px 12px rgba(0,0,0,0.45), 0 6px 20px rgba(0,0,0,0.7);
+  padding:8px 12px;
+  color:#3c5016;
+  margin-bottom:12px;
+  font-family:"Courier New", monospace;
+}
+.lcd-top{position:relative;font-size:12px;text-align:right;color:#a7d69a;}
+.lcd-bottom{position:relative;margin-top:6px;font-size:28px;text-align:right;color:#ebffb9;font-weight:800;}
+
+/* D-pad cluster (centered) */
+.dpad{
+  position:relative;
+  width:160px;
+  height:120px;
+  margin:6px auto 12px;
+  pointer-events:none;
+}
+.dpad-large{
+  position:absolute;
+  width:80px;height:80px;
+  left:50%; transform:translateX(-50%);
+  top:6px;
+  border-radius:50%;
+  background: linear-gradient(180deg,#e3e3e3,#bfbfbf);
+  box-shadow: inset 0 6px 10px rgba(255,255,255,0.7), 0 6px 12px rgba(0,0,0,0.45);
+}
+.dpad-small{
+  position:absolute;width:26px;height:26px;border-radius:50%;
+  background: linear-gradient(180deg,#d0d0d0,#9f9f9f);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.6), 0 3px 6px rgba(0,0,0,0.5);
+}
+.dpad-small.top{left:50%; transform:translateX(-50%); top:0;}
+.dpad-small.bottom{left:50%; transform:translateX(-50%); bottom:0;}
+.dpad-small.left{left:20px; top:40px;}
+.dpad-small.right{right:20px; top:40px;}
+
+/* Keys container (absolute-positioned keys) */
+.keys{ position:absolute; left:0; top:280px; width:100%; height:600px; }
+
+/* Generic key styles */
+.key{
+  position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.7), 0 10px 14px rgba(0,0,0,0.35);
+  cursor:default;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
-.brand-right {
-  font-size: 0.9em;
-  color: #ccc;
+/* color variants */
+.key.black{
+  background: linear-gradient(180deg,#222,#0f0f0f);
+  color:#ffd973;
+  width:54px;height:44px;
+  font-size:13px;
+}
+.key.grey{
+  background: linear-gradient(180deg,#b0b3b9,#8a8b91);
+  color:#111;
+  width:54px;height:44px;
+  font-size:14px;
+}
+.key.grey.red{
+  background: linear-gradient(180deg,#d26b6b,#af2b2b);
+  color:#fff;
+}
+.key.small{ width:48px;height:36px; font-size:12px; border-radius:9px; box-shadow:0 4px 0 rgba(0,0,0,0.65); }
+.key.big{ width:114px;height:44px; font-size:14px; border-radius:12px; }
+.key.op{ background: linear-gradient(180deg,#2a6a8b,#0c4c6a); color:#fff; }
+.key.equal{ background: linear-gradient(180deg,#007a61,#005044); color:#fff; box-shadow:0 6px 0 rgba(0,0,0,0.7); }
+
+/* text color tweaks */
+.key.ytext{ color:#ffd24b; }
+.key.rtext{ color:#ff6b7a; }
+
+/* Place every key manually (top/left relative to .calculator) */
+/* Row top small keys (near dpad top area) */
+#b-shift{ left:26px; top:205px; }
+#b-alpha{ left:86px; top:205px; }
+#b-mode{ left:146px; top:200px; }
+#b-clr{ left:206px; top:200px; }
+#b-on   { left:266px; top:200px; }
+
+/* Scientific black keys (6 rows x 5) - manual approximate positions */
+/* Row 1 */
+#b-x2{ left:26px; top:260px; }
+#b-sqrt{ left:94px; top:260px; }
+#b-xinv{ left:162px; top:260px; }
+#b-log{ left:230px; top:260px; }
+#b-ln{ left:298px; top:260px; }
+
+/* Row 2 */
+#b-hyp{ left:26px; top:320px; }
+#b-sin{ left:94px; top:320px; }
+#b-cos{ left:162px; top:320px; }
+#b-tan{ left:230px; top:320px; }
+#b-exp{ left:298px; top:320px; }
+
+/* Row 3 */
+#b-leftparen{ left:26px; top:380px; }
+#b-nCr{ left:94px; top:380px; }
+#b-nPr{ left:162px; top:380px; }
+#b-pol{ left:230px; top:380px; }
+#b-rec{ left:298px; top:380px; }
+
+/* Row 4 */
+#b-rcl{ left:26px; top:440px; }
+#b-eng{ left:94px; top:440px; }
+#b-sto{ left:162px; top:440px; }
+#b-mplus{ left:230px; top:440px; }
+#b-mminus{ left:298px; top:440px; }
+
+/* Row 5 */
+#b-invSin{ left:26px; top:500px; }
+#b-invCos{ left:94px; top:500px; }
+#b-invTan{ left:162px; top:500px; }
+#b-hold1{ left:230px; top:500px; }
+#b-pi{ left:298px; top:500px; }
+
+/* Grey numeric section (5 rows x 5) */
+/* Row G1 */
+#g7{ left:26px; top:570px; }
+#g8{ left:94px; top:570px; }
+#g9{ left:162px; top:570px; }
+#g-del{ left:230px; top:570px; }
+#g-ac{ left:298px; top:570px; }
+
+/* Row G2 */
+#g4{ left:26px; top:630px; }
+#g5{ left:94px; top:630px; }
+#g6{ left:162px; top:630px; }
+#g-mul{ left:230px; top:630px; }
+#g-div{ left:298px; top:630px; }
+
+/* Row G3 */
+#g1{ left:26px; top:690px; }
+#g2{ left:94px; top:690px; }
+#g3{ left:162px; top:690px; }
+#g-add{ left:230px; top:690px; }
+#g-sub{ left:298px; top:690px; }
+
+/* Row G4 */
+#g0{ left:26px; top:750px; width:128px; } /* wider 0 */
+#g-dot{ left:162px; top:750px; }
+#g-exp{ left:230px; top:750px; }
+#g-ans{ left:298px; top:750px; }
+#g-eq{ left:230px; top:810px; width:130px; height:46px; } /* big = button centered bottom */
+
+/* Row G5 */
+#g-rnd{ left:26px; top:810px; }
+#g-lpar{ left:94px; top:810px; }
+#g-rpar{ left:162px; top:810px; }
+#g-xfact{ left:298px; top:810px; }
+#g-mrc{ left:370px; top:810px; } /* small, near right edge */
+
+/* Minor adjustments to ensure keys have correct class widths/heights */
+.key.black, .key.grey { border-radius:10px; }
+
+/* Bottom decorative notch */
+.bottom-notch{
+  position:absolute;
+  bottom:8px;
+  left:50%;
+  transform:translateX(-50%);
+  width:220px;
+  height:18px;
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.35));
+  opacity:0.18;
 }
 
-/* Display */
-.calc-display {
-  background: linear-gradient(180deg, #52573d, #3a3e2d);
-  border-radius: 8px;
-  box-shadow: inset 0 0 10px #000;
-  padding: 10px;
-  margin: 15px auto 25px;
-  color: #ccffb0;
-  width: 90%;
-  text-align: right;
-  font-family: "Courier New", monospace;
-}
+/* Make the whole calculator scale uniformly when a user zooms the page (browser zoom/pinch) */
+/* We intentionally DO NOT make it responsive via percentages — we want pixel fidelity. */
 
-.display-small {
-  font-size: 0.9em;
-  color: #a0e6a0;
-}
-
-.display-large {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #d5ffb8;
-}
-
-/* Circle D-Pad */
-.nav-cluster {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 15px;
-}
-
-.circle {
-  width: 50px;
-  height: 50px;
-  background: #9c9c9c;
-  border-radius: 50%;
-  margin: 0 auto;
-}
-
-.circle-btn {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: #888;
-  border-radius: 50%;
-}
-
-.circle-btn.up { top: 0; left: 50%; transform: translateX(-50%); }
-.circle-btn.down { bottom: 0; left: 50%; transform: translateX(-50%); }
-.circle-btn.left { left: 0; top: 50%; transform: translateY(-50%); }
-.circle-btn.right { right: 0; top: 50%; transform: translateY(-50%); }
-
-/* Buttons Layout */
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-}
-
-.btn {
-  width: 50px;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  color: #ffd95e;
-  background: linear-gradient(to bottom, #2e2e2e, #111);
-  box-shadow: 0 3px 0 #000, 0 5px 8px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  transition: transform 0.1s;
-}
-
-.btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 #000, 0 3px 5px rgba(0, 0, 0, 0.4);
-}
-
-/* Color Variations */
-.btn.gray {
-  background: linear-gradient(to bottom, #58585f, #2c2c33);
-  color: #fff;
-}
-
-.btn.black {
-  background: linear-gradient(to bottom, #222, #000);
-  color: #ffd95e;
-}
-
-.red-bg {
-  background: linear-gradient(to bottom, #d33, #900);
-  color: #fff;
-}
-
-.yellow { color: #ffe66d; }
-.red { color: #ff4a4a; }
-
-/* Responsive scaling */
-@media (max-width: 450px) {
-  .calculator-body {
-    transform: scale(0.8);
-  }
+@media (max-width: 420px) {
+  /* on very small viewports, scale down a touch */
+  .calculator { transform: scale(0.85); transform-origin: top center; }
 }
