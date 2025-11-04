@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SciCal</title>
+  <title>SciCal - Scientific Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,66 +15,65 @@
     </div>
 
     <div class="display">
-      <div class="display-small">sin(30)+5×2</div>
-      <div class="display-large">15</div>
+      <div id="expression" class="display-small"></div>
+      <div id="result" class="display-large">0</div>
     </div>
 
     <div class="buttons">
-      <!-- Row 1 -->
+      <!-- Top Row -->
       <button class="btn fn">SHIFT</button>
       <button class="btn fn">MODE</button>
       <button class="btn fn">DEG</button>
       <button class="btn fn">RAD</button>
-      <button class="btn red">DEL</button>
-      <button class="btn red">AC</button>
+      <button class="btn red" onclick="delChar()">DEL</button>
+      <button class="btn red" onclick="clearAll()">AC</button>
 
-      <!-- Row 2 -->
-      <button class="btn func">sin</button>
-      <button class="btn func">cos</button>
-      <button class="btn func">tan</button>
-      <button class="btn func">log</button>
-      <button class="btn func">ln</button>
-      <button class="btn func">√</button>
+      <!-- Functions -->
+      <button class="btn func" onclick="insert('sin(')">sin</button>
+      <button class="btn func" onclick="insert('cos(')">cos</button>
+      <button class="btn func" onclick="insert('tan(')">tan</button>
+      <button class="btn func" onclick="insert('log(')">log</button>
+      <button class="btn func" onclick="insert('ln(')">ln</button>
+      <button class="btn func" onclick="insert('Math.sqrt(')">√</button>
 
-      <!-- Row 3 -->
-      <button class="btn func">x²</button>
-      <button class="btn func">x³</button>
-      <button class="btn func">EXP</button>
-      <button class="btn func">π</button>
-      <button class="btn func">e</button>
-      <button class="btn func">Ans</button>
+      <!-- Powers and constants -->
+      <button class="btn func" onclick="insert('**2')">x²</button>
+      <button class="btn func" onclick="insert('**3')">x³</button>
+      <button class="btn func" onclick="insert('Math.exp(')">EXP</button>
+      <button class="btn func" onclick="insert('Math.PI')">π</button>
+      <button class="btn func" onclick="insert('Math.E')">e</button>
+      <button class="btn func" onclick="calculate()">Ans</button>
 
-      <!-- Row 4 -->
-      <button class="btn op">(</button>
-      <button class="btn op">)</button>
-      <button class="btn num">7</button>
-      <button class="btn num">8</button>
-      <button class="btn num">9</button>
-      <button class="btn op">÷</button>
+      <!-- Numbers and ops -->
+      <button class="btn op" onclick="insert('(')">(</button>
+      <button class="btn op" onclick="insert(')')">)</button>
+      <button class="btn num" onclick="insert('7')">7</button>
+      <button class="btn num" onclick="insert('8')">8</button>
+      <button class="btn num" onclick="insert('9')">9</button>
+      <button class="btn op" onclick="insert('/')">÷</button>
 
-      <!-- Row 5 -->
-      <button class="btn num">4</button>
-      <button class="btn num">5</button>
-      <button class="btn num">6</button>
-      <button class="btn op">×</button>
-      <button class="btn const">M+</button>
-      <button class="btn const">M-</button>
+      <button class="btn num" onclick="insert('4')">4</button>
+      <button class="btn num" onclick="insert('5')">5</button>
+      <button class="btn num" onclick="insert('6')">6</button>
+      <button class="btn op" onclick="insert('*')">×</button>
+      <button class="btn mem" onclick="memoryAdd()">M+</button>
+      <button class="btn mem" onclick="memorySubtract()">M-</button>
 
-      <!-- Row 6 -->
-      <button class="btn num">1</button>
-      <button class="btn num">2</button>
-      <button class="btn num">3</button>
-      <button class="btn op">−</button>
-      <button class="btn const">MR</button>
-      <button class="btn const">MC</button>
+      <button class="btn num" onclick="insert('1')">1</button>
+      <button class="btn num" onclick="insert('2')">2</button>
+      <button class="btn num" onclick="insert('3')">3</button>
+      <button class="btn op" onclick="insert('-')">−</button>
+      <button class="btn mem" onclick="memoryRecall()">MR</button>
+      <button class="btn mem" onclick="memoryClear()">MC</button>
 
-      <!-- Row 7 -->
-      <button class="btn num">0</button>
-      <button class="btn num">.</button>
-      <button class="btn num">%</button>
-      <button class="btn op">+</button>
-      <button class="btn eq" colspan="2">=</button>
+      <button class="btn num" onclick="insert('0')">0</button>
+      <button class="btn num" onclick="insert('.')">.</button>
+      <button class="btn num" onclick="insert('%')">%</button>
+      <button class="btn op" onclick="insert('+')">+</button>
+      <button class="btn eq" onclick="calculate()">=</button>
     </div>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
