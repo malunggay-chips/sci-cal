@@ -81,4 +81,10 @@ body {
 .num { background: #404040; }
 .mem { background: #9b870c; }
 .red { background: #b53939; }
-.eq { background: #228b22; grid-column: span 2; }
+.eq {
+  background: #228b22;
+  grid-column: 5 / span 2; /* start in column 5 and span 2 columns */
+  height: 100%;
+  font-size: 1.2em;
+}
+
