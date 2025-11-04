@@ -1,152 +1,84 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
 body {
-  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  background: #111;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
   height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
 }
 
-/* === Calculator Body === */
 .calculator {
-  background: linear-gradient(180deg, #2a2a2a, #101010);
-  border-radius: 40px;
-  padding: 25px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.9), inset 0 4px 10px rgba(255,255,255,0.05);
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: linear-gradient(#2a2a33, #1a1a23);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+  width: 320px;
 }
 
-/* === Header === */
 .brand {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .brand-left {
-  color: #fff;
-  font-size: 1.1em;
-  letter-spacing: 1px;
+  color: #bdfdff;
+  font-weight: bold;
 }
-
 .brand-center {
-  color: #ff6bc7;
-  font-size: 1em;
+  color: #ff7ab8;
+  font-weight: bold;
 }
-
 .brand-right {
   color: #ccc;
-  font-size: 1em;
+  font-weight: bold;
 }
 
-/* === Display === */
 .display {
-  background: linear-gradient(180deg, #606b50 0%, #4c5540 100%);
-  border-radius: 10px;
-  box-shadow: inset 0 2px 8px #000;
-  width: 90%;
-  padding: 10px 14px;
-  margin: 15px 0 20px;
-  color: #c8ffb0;
-  font-family: "Courier New", monospace;
+  background: #303833;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: right;
+  margin-bottom: 15px;
+  box-shadow: inset 0 0 10px #000;
 }
-
 .display-small {
-  text-align: right;
-  font-size: 0.9em;
-  color: #a8e6a8;
+  color: #9fc99f;
+  font-size: 0.8em;
 }
-
 .display-large {
-  text-align: right;
+  color: #c6ffc6;
   font-size: 1.6em;
   font-weight: bold;
-  color: #dfffbb;
 }
 
-/* === Buttons Grid === */
 .buttons {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
-  width: 100%;
+  gap: 8px;
 }
 
 .btn {
   border: none;
-  border-radius: 10px;
-  padding: 12px 0;
+  border-radius: 8px;
+  padding: 10px;
   font-weight: bold;
-  text-align: center;
-  box-shadow: 0 4px #000, 0 6px 8px rgba(0,0,0,0.6);
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
   cursor: pointer;
-  font-size: 1em;
-  transition: transform 0.05s, box-shadow 0.05s;
+  color: #fff;
 }
 
 .btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  transform: scale(0.95);
 }
 
-/* === Color Groups === */
-.btn.num {
-  background: linear-gradient(to bottom, #444, #222);
-  color: #fff;
-}
-
-.btn.op {
-  background: linear-gradient(to bottom, #0a4d9b, #062d63);
-  color: #fff;
-}
-
-.btn.eq {
-  background: linear-gradient(to bottom, #00796b, #004f45);
-  color: #fff;
-}
-
-.btn.func {
-  background: linear-gradient(to bottom, #005f3f, #003a26);
-  color: #c2ffcb;
-}
-
-.btn.const {
-  background: linear-gradient(to bottom, #887000, #554a00);
-  color: #fff8b0;
-}
-
-.btn.fn {
-  background: linear-gradient(to bottom, #5a3f88, #3a285b);
-  color: #e0caff;
-}
-
-.btn.red {
-  background: linear-gradient(to bottom, #b00020, #6a0010);
-  color: #fff;
-}
-
-/* === Responsive === */
-@media (max-width: 480px) {
-  .calculator {
-    width: 95vw;
-    padding: 20px;
-  }
-  .buttons {
-    gap: 10px;
-  }
-  .btn {
-    font-size: 0.9em;
-    padding: 10px 0;
-  }
-}
+/* Colors */
+.fn { background: #6b5b95; }
+.func { background: #347a34; }
+.op { background: #1f3b73; }
+.num { background: #404040; }
+.mem { background: #9b870c; }
+.red { background: #b53939; }
+.eq { background: #228b22; grid-column: span 2; }
